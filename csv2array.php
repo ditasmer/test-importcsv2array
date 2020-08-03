@@ -10,6 +10,7 @@ eregi_replace("[\n|\r|\n\r|\t]","" , $texto)
 ●Este array lo guardamos en un segundo array que tendrá tantas filas como registros tenga el fichero:
 array_push($registros, $fila)*/
 
+$alumnos = [];
 //convertir csv a array
 
 //proteger lectura
@@ -27,9 +28,13 @@ if(file_exists('309_alumnos.csv')){
 
 		//guarda fila en array 
 		$alumno = explode(';', $fila);
-		print_r($alumno);
-		echo '<br>';
+		//print_r($alumno);
+		//echo '<br>';
+
+		//guardar alumno en array de alumnos
+		array_push($alumnos, $alumno);
 	}
+	print_r($alumnos);
 }
 
 	
