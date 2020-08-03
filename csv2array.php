@@ -43,3 +43,21 @@ if(file_exists('309_alumnos.csv')){
 	
 
 ?>
+
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CSV</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		table, td, th {border: 1px solid grey; padding: 5px};
+	</style>
+</head>
+<body>
+	<table>
+		
+		
+	</table>
+</body>
+</html>
