@@ -13,6 +13,8 @@ array_push($registros, $fila)*/
 /*SEGUNDA PARTE: EJERCICIO
 Dado un fichero excel en formato .csv, importarlo en un array de php y, posteriormente, volcarlo en una tabla html*/
 
+session_start();
+
 $alumnos = [];
 //convertir csv a array
 
@@ -22,7 +24,7 @@ if(file_exists('309_alumnos.csv')){
 	$fichero = fopen('309_alumnos.csv', 'r');
 
 	//primera lectura, descartar primera fila
-	fgets($fichero);
+	//fgets($fichero);
 
 	//leer hasta el final
 	while(!feof($fichero)){
@@ -37,7 +39,34 @@ if(file_exists('309_alumnos.csv')){
 		//guardar alumno en array de alumnos
 		array_push($alumnos, $alumno);
 	}
-	print_r($alumnos);
+	//print_r($alumnos);
+	fclose($fichero);
+	$_SESSION['alumnos'] = $alumnos;
+
+	//guarda alumnos en tr alumno
+	$tr_alumno = '';
+	//foreach ($alumnos as $alumno) {
+	foreach ($alumnos as $indiceFila => $alumno) {
+		$tr_alumno.="<tr>";
+		$td='';
+		foreach ($alumno as $indiceCol => $dato) {
+			if($indiceFila == 0){
+				$td.="<th>$dato</th>";
+			}else{
+				$td.="<td>$dato</td>";
+			}
+		}
+		
+		$tr_alumno.=$td;
+		$td='';
+		$tr_alumno.="</tr>";
+		
+		
+		
+	}
+
+
+		
 }
 
 	
@@ -57,7 +86,9 @@ if(file_exists('309_alumnos.csv')){
 <body>
 	<table>
 		
+		<?=$tr_alumno?>
 		
+
 	</table>
 </body>
 </html>
