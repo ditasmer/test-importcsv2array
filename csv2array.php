@@ -10,6 +10,9 @@ eregi_replace("[\n|\r|\n\r|\t]","" , $texto)
 ●Este array lo guardamos en un segundo array que tendrá tantas filas como registros tenga el fichero:
 array_push($registros, $fila)*/
 
+/*SEGUNDA PARTE: EJERCICIO
+Dado un fichero excel en formato .csv, importarlo en un array de php y, posteriormente, volcarlo en una tabla html*/
+
 $alumnos = [];
 //convertir csv a array
 
